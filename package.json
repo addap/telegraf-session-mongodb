@@ -26,6 +26,6 @@
   "license": "MIT",
   "homepage": "https://github.com/addap/telegraf-session-mongodb",
   "dependencies": {
-    "mongodb": "^3.1.10"
+    "mongodb": "^3.5.2"
   }
 }
