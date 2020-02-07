@@ -1,6 +1,6 @@
 {
   "name": "telegraf-session-mongodb",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "MongoDB session middleware for Telegraf",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/krekeris/telegraf-session-mongodb.git"
+    "url": "https://github.com/addap/telegraf-session-mongodb"
   },
   "keywords": [
     "telegraf",
@@ -20,14 +20,11 @@
     "bot"
   ],
   "author": {
-    "name": "krekeris",
-    "email": "alxkrekeris@gmail.com"
+    "name": "Adrian Dapprich",
+    "email": "adrian@dapprich.dev"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/krekeris/telegraf-session-mongodb/issues"
-  },
-  "homepage": "https://github.com/krekeris/telegraf-session-mongodb#readme",
+  "homepage": "https://github.com/addap/telegraf-session-mongodb",
   "dependencies": {
     "mongodb": "^3.1.10"
   }

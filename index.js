@@ -2,7 +2,8 @@ class TelegrafMongoSession {
     constructor(db, options) {
         this.options = Object.assign({
             sessionName: 'session',
-            collectionName: 'sessions'
+            collectionName: 'sessions',
+            unifyGroups: false
         }, options);
         this.db = db;
         this.collection = db.collection(this.options.collectionName);
@@ -21,9 +22,15 @@ class TelegrafMongoSession {
         // if ctx has chat object, we use chat.id
         // if ctx has callbackquery object, we use cb.chat_instance
         // if ctx does not have any of the fields mentioned above, we use from.id
+        // if we unify groups to have the same state for all members we use any of the previous ids
 
         const id = ctx.chat ? ctx.chat.id : (ctx.callbackQuery ? ctx.callbackQuery.chat_instance : ctx.from.id);
-        return `${id}:${ctx.from.id}`;
+        const type = ctx.chat.type;
+
+        if (this.options.unifyGroups && (type === 'group' || type === 'supergroup'))
+            return `group:${id}`;
+        else
+            return `${id}:${ctx.from.id}`;
     }
 
     async middleware(ctx, next) {
